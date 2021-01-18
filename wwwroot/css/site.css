@@ -31,3 +31,7 @@ ul.product-props {
 ul.product-props li {
     list-style-type: none;
 }
+
+.product-info {
+    border: 1px solid grey;
+}
