@@ -3,8 +3,8 @@ var s = "";
 
 console.log("Hello Pluralsight");
 
-var theForm = document.getElementById('theForm');
-theForm.hidden = true;
+var theForm = $("#theForm");
+theForm.hide();
 
 var button = document.getElementById('buyButton');
 button.addEventListener("click", function () {
