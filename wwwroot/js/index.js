@@ -1,17 +1,23 @@
-﻿var x = 0;
-var s = "";
+﻿$(document).ready(function () {
 
-console.log("Hello Pluralsight");
+    var x = 0;
+    var s = "";
 
-var theForm = $("#theForm");
-theForm.hide();
+    console.log("Hello Pluralsight");
 
-var button = document.getElementById('buyButton');
-button.on("click", function () {
-    console.log("Buying Item");
-});
 
-var productInfo = $(".product-props li");
-productInfo.on("click", function () {
-    console.log("You clicked on " + $(this).text());
+
+    var theForm = $("#theForm");
+    theForm.hide();
+
+    var button = document.getElementById('buyButton');
+    button.on("click", function () {
+        console.log("Buying Item");
+    });
+
+    var productInfo = $(".product-props li");
+    productInfo.on("click", function () {
+        console.log("You clicked on " + $(this).text());
+    });
+
 });
