@@ -9,9 +9,6 @@
     theForm.hide();
 
     var button = document.getElementById('buyButton');
-    button.on("click", function () {
-        console.log("Buying Item");
-    });
 
     var productInfo = $(".product-props li");
     productInfo.on("click", function () {
