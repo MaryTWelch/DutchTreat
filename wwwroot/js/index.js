@@ -1,4 +1,7 @@
-﻿$(document).ready(function () {
+﻿// Ctrl-Shift-R in Chrome to hard refresh browser, clears cache & lets you see most up-to-date code when running
+// with IIS Express
+
+$(document).ready(function () {
 
     var x = 0;
     var s = "";
