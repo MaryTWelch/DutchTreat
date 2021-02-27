@@ -17,7 +17,6 @@ namespace DutchTreat
         }
 
     // not sure how to handle changes from video... may need to check out dude's new course...
-    // phoning it in CAUSE I HAVE COVID AUGH
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
