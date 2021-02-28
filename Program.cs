@@ -16,12 +16,22 @@ namespace DutchTreat
             CreateHostBuilder(args).Build().Run();
         }
 
-    // not sure how to handle changes from video... may need to check out dude's new course...
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureAppConfiguration(SetupConfiguration);
                     webBuilder.UseStartup<Startup>();
                 });
+
+    private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
+    {
+      // Removing the default configuration options
+      builder.Sources.Clear();
+
+      builder.AddJsonFile("config.json", false, true)
+        .AddXmlFile("config.xml", true)
+        .AddEnvironmentVariables();
     }
+  }
 }
