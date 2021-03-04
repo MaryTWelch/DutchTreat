@@ -18,6 +18,7 @@ namespace DutchTreat.Controllers
     public AppController(IMailService mailService, DutchContext context)
     {
       _mailService = mailService;
+      _context = context;
     }
     public IActionResult Index()
     {
@@ -53,11 +54,11 @@ namespace DutchTreat.Controllers
 
     public IActionResult Shop()
     {
-      var results = _context.Products
-        .OrderBy(p => p.Category)
-        .ToList();
+      var results = from p in _context.Products
+                    orderby p.Category
+                    select p;
 
-      return View(results);
+      return View(results.ToList());
     }
   }
 }
