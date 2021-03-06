@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DutchTreat.Data
 {
     public class DutchSeeder
     {
         private readonly DutchContext _ctx;
-        public DutchSeeder(DutchContext ctx)
+        private readonly IWebHostEnvironment _hosting;
+        public DutchSeeder(DutchContext ctx, IWebHostEnvironment hosting)
         {
             _ctx = ctx;
+            _hosting = hosting;
         }
 
         public void Seed()
@@ -19,9 +23,10 @@ namespace DutchTreat.Data
             _ctx.Database.EnsureCreated();
 
             if(_ctx.Products.Any())
-            { 
-                // Need to create sample data
-
+            {
+              // Need to create sample data
+              var file = Path.Combine(_hosting.ContentRootPath, "Data/art.json");
+              var json = File.ReadAllText(filepath);
             }
         }
     }
