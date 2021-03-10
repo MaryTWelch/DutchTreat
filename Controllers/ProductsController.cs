@@ -22,9 +22,18 @@ namespace DutchTreat.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public JsonResult Get()
         {
-            return _repository.GetAllProducts();
+          try
+          {
+              return Json(_repository.GetAllProducts());
+          }
+          catch (Exception ex)
+          {
+              _logger.LogError($"Failed to get products: {ex}");
+              return Json("Bad request");
+          }
+            
         }
     }
 }
