@@ -39,7 +39,8 @@ namespace DutchTreat
 
           services.AddScoped<IDutchRepository, DutchRepository>();
 
-          services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+              .AddJsonOptions(opt => opt.JsonSerializerOptions.Ref);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
